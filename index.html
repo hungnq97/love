@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<title>Make Love</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<main>
+		<h1 id="story"></h1>
+		<cite id="time"></cite>
+		<button class="btn-refresh" id="button" onclick="makeStory()">Hùng Ptit</button>
+	</main>
+	<script>
+		var stories = [
+			{
+				story:'Vì sao giáp mặt buổi đầu tiên,\nTôi đã đày thân giữa xứ phiền,\nKhông thể vô tình qua trước cửa,\nBiết rằng gặp gỡ đã vô duyên?\n\nLàm sao cắt nghĩa được tình yêu\nCó nghĩa gì đâu, một buổi chiều\nNó chiếm hồn ta bằng nắng nhạt,\nBằng mây nhè nhẹ, gió hiu hiu...?\n\nEm hãy là nơi mấy khóm dừa\nDầm chân trong nước, đứng say sưa,\nĐể tôi là kẻ qua sa mạc\nTạm lánh hè gay - thế cũng vừa.',
+				time :'Vì sao - Xuân Diệu.'
+			},
+			{
+				story:'Em ngược đường, ngược nắng để yêu anh\nNgược phố tan tầm, ngược chiều gió thổi\nNgược lòng mình tìm về nông nổi\nLãng du đi vô định cánh chim trời\n Em ngược thời gian, em ngược không gian\nNgược đời thường bon chen tìm về mê đắm\nNgược trái tim tự bao giờ chai lặng\nEm đánh thức nỗi buồn, em gợi khát khao xanh\nMang bao điều em muốn nói cùng anh\nChợt sững lại trước cây mùa trút lá\nTrái Đất sẽ thế nào khi mầu xanh không còn nữa\nVà sẽ thế nào khi trong anh không em?\nEm trở về im lặng của đêm\nChẳng còn nữa người đông và bụi đỏ \nPhố bỗng buồn tênh, bờ vai hút gió\nRiêng chiều này - em biết, một mình em...\n',
+				time :'Một chiều ngược gió - Bùi Sim Sim.'
+			},
+			
+		];
+		function randomToado(range){
+			return Math.floor(Math.random()*range);
+		}
+		function getStory(){
+			return stories[randomToado(stories.length)];
+		}
+		function makeStory() {
+			var story = getStory();
+			var eleStory = document.getElementById('story');
+			var eleTime = document.getElementById('time');
+			eleStory.innerText = story.story;
+			eleTime.innerText = story.time;
+		}
+		window.onload = makeStory();
+
+		window.onload = function(){
+		    var button = document.getElementById('button');
+		    setInterval(function(){
+		        button.click();
+		    },6000);  // this will make it click again every 1000 miliseconds
+		};
+
+	</script>
+</body>
+</html>
